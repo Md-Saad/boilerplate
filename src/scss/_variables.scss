@@ -1,0 +1,302 @@
+// Variables
+//
+// Variables should follow the `$component-state-property-size` formula for
+// consistent naming. Ex: $nav-link-disabled-color and $modal-content-box-shadow-xs.
+// Color system
+// scss-docs-start gray-color-variables
+$white: #fff !default;
+$gray-100: #f8f9fa !default;
+$gray-200: #e9ecef !default;
+$gray-300: #dee2e6 !default;
+$gray-400: #ced4da !default;
+$gray-500: #adb5bd !default;
+$gray-600: #6c757d !default;
+$gray-700: #495057 !default;
+$gray-800: #343a40 !default;
+$gray-900: #212529 !default;
+$black: #000 !default;
+
+// scss-docs-start color-variables
+$blue: #0d6efd !default;
+$indigo: #6610f2 !default;
+$purple: #6f42c1 !default;
+$pink: #d63384 !default;
+$red: #dc3545 !default;
+$orange: #fd7e14 !default;
+$yellow: #ffc107 !default;
+$green: #198754 !default;
+$teal: #20c997 !default;
+$cyan: #0dcaf0 !default;
+// scss-docs-end color-variables
+
+// Custom Color for bootstrap
+
+// scss-docs-start colors-map
+$colors: (
+  "blue": $blue,
+  "indigo": $indigo,
+  "purple": $purple,
+  "pink": $pink,
+  "red": $red,
+  "orange": $orange,
+  "yellow": $yellow,
+  "green": $green,
+  "teal": $teal,
+  "cyan": $cyan,
+  "white": $white,
+  "gray": $gray-600,
+  "gray-dark": $gray-800,
+) !default;
+// scss-docs-end colors-map
+// scss-docs-start theme-color-variables
+$primary: $blue !default;
+$secondary: $gray-600 !default;
+$success: $green !default;
+$info: $cyan !default;
+$warning: $yellow !default;
+$danger: $red !default;
+$light: $gray-100 !default;
+$dark: $gray-900 !default;
+// scss-docs-end theme-color-variables
+
+// scss-docs-start theme-colors-map
+$theme-colors: (
+  "primary": $primary,
+  "secondary": $secondary,
+  "success": $success,
+  "info": $info,
+  "warning": $warning,
+  "danger": $danger,
+  "light": $light,
+  "dark": $dark,
+) !default;
+// scss-docs-end theme-colors-map-end 
+
+// The contrast ratio to reach against white, to determine if color changes from "light" to "dark". Acceptable values for WCAG 2.0 are 3, 4.5 and 7.
+// See https://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast
+$min-contrast-ratio: 4.5 !default;
+
+$enable-negative-margins: true !default;
+// Prefix for :root CSS variables
+$variable-prefix: bs- !default;
+
+// Spacing
+//
+// Control the default styling of most Bootstrap elements by modifying these
+// variables. Mostly focused on spacing.
+// You can add more entries to the $spacers map, should you need more variation.
+// scss-docs-start spacer-variables-maps
+$spacer: 1rem !default;
+$spacers: (
+  0: 0,
+  1: $spacer / 4,
+  2: $spacer / 2,
+  3: $spacer,
+  4: $spacer * 1.5,
+  5: $spacer * 3,
+)!default;
+// Create my  own spacers
+// $custom-spacers: (
+//   6: $spacer * 4.5,
+//   7: $spacer * 6.25,
+//   8: $spacer * 9.375,
+//   9: $spacer * 10,
+//   10: $spacer * 12.5,
+// );
+// $spacers: map-merge($spacers, $custom-spacers);
+$negative-spacers: if(
+  $enable-negative-margins,
+  negativify-map($spacers),
+  null
+) !default;
+// scss-docs-end spacer-variables-maps
+// Position
+//
+// Define the edge positioning anchors of the position utilities.
+// scss-docs-start position-map
+$position-values: (
+  0: 0,
+  5: 5%,
+  10: 10%,
+  15: 15%,
+  20: 20%,
+  25: 25%,
+  30: 30%,
+  50: 50%,
+  100: 100%,
+) !default;
+// scss-docs-end position-map
+// Body
+//
+// Settings for the `<body>` element.
+$body-bg: #ffff;
+$body-color: $gray-900 !default;
+$body-text-align: null !default;
+// Links
+//
+// Style anchor elements.
+$link-color: $black !default;
+$link-decoration: none !default;
+$link-shade-percentage: 20% !default;
+$link-hover-color: $primary !default;
+$link-hover-decoration: null !default;
+$stretched-link-pseudo-element: after !default;
+$stretched-link-z-index: 1 !default;
+// Paragraphs
+//
+// Style p element.
+$paragraph-margin-bottom: 1rem !default;
+// Grid breakpoints
+//
+// Define the minimum dimensions at which your layout will change,
+// adapting to different screen sizes, for use in media queries.
+// scss-docs-start grid-breakpoints
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1400px,
+) !default;
+// scss-docs-end grid-breakpoints
+@include _assert-ascending($grid-breakpoints, "$grid-breakpoints");
+@include _assert-starts-at-zero($grid-breakpoints, "$grid-breakpoints");
+// Grid containers
+//
+// Define the maximum width of `.container` for different screen sizes.
+// scss-docs-start container-max-widths
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1140px,
+  xxl: 1320px,
+) !default;
+// scss-docs-end container-max-widths
+@include _assert-ascending($container-max-widths, "$container-max-widths");
+// Grid columns
+//
+// Set the number of columns and specify the width of the gutters.
+$grid-columns: 12 !default;
+$grid-gutter-width: 1.5rem !default;
+$grid-row-columns: 6 !default;
+$gutters: $spacers !default;
+// Container padding
+$container-padding-x: $grid-gutter-width / 2 !default;
+// Custom Grid Stlyes for Display Grid css
+$grid-template-columns: (
+  2: 2,
+  3: 3,
+  4: 4,
+  5: 5,
+  6: 6,
+) !default;
+// Custom Grid Stlyes for Display Grid css
+// Components
+//
+// Define common padding and border radius sizes and more.
+// scss-docs-start border-variables
+$border-color: $gray-300 !default;
+// scss-docs-end border-variables
+
+// scss-docs-start border-radius-variables
+$border-radius: 0.25rem !default;
+$border-radius-sm: 0.2rem !default;
+$border-radius-lg: 0.3rem !default;
+$border-radius-pill: 50rem !default;
+// scss-docs-end border-radius-variables
+
+// scss-docs-start box-shadow-variables
+$box-shadow: 0 0.5rem 1rem rgba($black, 0.15) !default;
+$box-shadow-sm: 0 0.125rem 0.25rem rgba($black, 0.075) !default;
+$box-shadow-lg: 0 1rem 3rem rgba($black, 0.175) !default;
+$box-shadow-inset: inset 0 1px 2px rgba($black, 0.075) !default;
+// scss-docs-end box-shadow-variables
+
+$component-active-color: $white !default;
+$component-active-bg: $primary !default;
+
+$transition-base: all 0.3s ease-in-out !default;
+$transition-fade: opacity 0.15s linear !default;
+// scss-docs-start collapse-transition
+$transition-collapse: height 0.35s ease !default;
+// scss-docs-end collapse-transition
+
+// Typography
+//
+// Font, line-height, and color for body text, headings, and more.
+// scss-docs-start font-variables
+// stylelint-disable value-keyword-case
+// Over Ride Font Variable for change Fonts
+//Import fonts from https://fonts.google.com/
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,500;0,700;0,900;1,300;1,400;1,500;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;500;600;700;800&display=swap");
+// Custom Font Variables
+$font-primary: "Inter", sans-serif !default;
+$font-secondary: "Roboto", sans-serif !default;
+// stylelint-enable value-keyword-case
+$font-family-base: var(--#{$variable-prefix}font-primary) !default;
+$font-family-secondary: var(--#{$variable-prefix}font-secondary) !default;
+$font-family-code: var(--#{$variable-prefix}font-monospace) !default;
+// $font-size-root effects the value of `rem`, which is used for as well font sizes, paddings and margins
+// $font-size-base effects the font size of the body text
+$font-size-root: null !default;
+$font-size-base: 1rem !default; // Assumes the browser default, typically `16px`
+$font-size-sm: $font-size-base * 0.875 !default;
+$font-size-lg: $font-size-base * 1.25 !default;
+$font-weight-lighter: lighter !default;
+$font-weight-light: 300 !default;
+$font-weight-normal: 400 !default;
+$font-weight-bold: 700 !default;
+$font-weight-extbold: 800 !default;
+$font-weight-bolder: bolder !default;
+$font-weight-base: $font-weight-normal !default;
+// Custom Font Weight
+$font-weight-medium: 500;
+$line-height-base: 1.5 !default;
+$line-height-sm: 1.25 !default;
+$line-height-lg: 2 !default;
+// Custom Font Size
+$h1-font-size: $font-size-base * 3.5 !default;
+$h2-font-size: $font-size-base * 3 !default;
+$h3-font-size: $font-size-base * 2;
+$h4-font-size: $font-size-base * 1.5;
+$h5-font-size: $font-size-base * 1.25;
+$h6-font-size: $font-size-base !default;
+$h7-font-size: $font-size-base * 2.25;
+// scss-docs-end font-variables
+// scss-docs-start font-sizes
+$font-sizes: (
+  1: $h1-font-size,
+  2: $h2-font-size,
+  3: $h3-font-size,
+  4: $h4-font-size,
+  5: $h5-font-size,
+  6: $h6-font-size,
+  7: $h7-font-size,
+) !default;
+// scss-docs-end font-sizes
+// scss-docs-start headings-variables
+//OVerride bootstrap default variables
+$headings-margin-bottom: $spacer / 2 !default;
+$headings-font-family: $font-primary !default;
+$headings-font-style: null !default;
+$headings-font-weight: 700 !default;
+$headings-line-height: 1.4;
+$headings-color: $black !default;
+// scss-docs-end headings-variables
+// scss-docs-start display-headings
+$display-font-sizes: (
+  1: 5rem,
+  2: 4.5rem,
+  3: 4rem,
+  4: 3.5rem,
+  5: 3rem,
+  6: 2.5rem,
+) !default;
+$display-font-weight: 400 !default;
+// scss-docs-end type-variables
+// Custom Font Styles
+$letter-spacing-base: 0.5px;
+

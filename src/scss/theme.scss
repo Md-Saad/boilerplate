@@ -1,0 +1,53 @@
+/*!------------------------------------------------------------------
+[MAIN STYLESHEET]
+PROJECT:	growthus
+-------------------------------------------------------------------*/
+/* ====== index =====
+1. Bootstrap Source Styles 
+2. Custom Utilities
+3.  Reboot
+4.  Root
+5.  Navbar
+6.  Buttons
+7.  Card
+8.  Dropdown
+9.  Pagination
+10. Badges
+11. Breadcrumb
+12. From Control
+13. Form Select
+14. Custom CSS
+15. Hero
+16. Service Section
+17. Work Section
+18. Counter Up Section
+19. Testimonial Section
+20. Contact Form Section
+21. Blog Section
+22. Client Section
+23. About Section
+24. Team Section
+25. Career Section
+26. Project Section
+27. Elements Section
+
+===================== */
+@import "bootstrap/scss/functions";
+@import "variables";
+@import "components/utilities";
+/********** 
+  1. Bootstrap Source Styles 
+**********/
+@import "bootstrap/scss/bootstrap";
+//Customizes bootstrap components
+/********** 
+   End of Bootstrap Source Styles 
+**********/
+//Customizes bootstrap mixins
+@import "components/mixins/custom-mixins";
+//Customizes bootstrap contents
+@import "components/reboot";
+@import "components/root";
+@import "components/navbar";
+//Theme Sections And Pages Sass
+
